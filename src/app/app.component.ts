@@ -49,12 +49,11 @@ export class AppComponent implements OnInit,AfterViewInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
   }
   ////////////////////////////////////
-  title = 'grafica3';
+  title = 'Ferias';
   municipios: any[]=[];
   Jsonmunicipios: any=[]=[];
   
-  
-  view:[number,number] = [650, 450];
+  view:[number,number] = [500, 450];
    // options
    showXAxis: boolean = true;
    showYAxis: boolean = true;
@@ -68,7 +67,7 @@ export class AppComponent implements OnInit,AfterViewInit {
    animations: boolean = true;
    
    colorScheme = {
-     domain: ['#0A84FF', '#FFE50A', '#AAAAAA'],group: ScaleType.Ordinal,name:"colores",selectable:true
+     domain: ['#FF670A', '#FFAD7C', '#AAAAAA'],group: ScaleType.Ordinal,name:"colores",selectable:true
    }
  
    //tabla material
@@ -121,7 +120,7 @@ export class AppComponent implements OnInit,AfterViewInit {
     })
     setTimeout(() => {
       this.VerMunicipios()
-     }, 3000);
+     }, 4000);
       return MUNICIPIOS_DATA;
   }
 }

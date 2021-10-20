@@ -1,21 +1,30 @@
-
-<!-- <div class="content"> -->
-<div class="container">
-  <div class="row border-3 border-bottom border-white">
-    <div class="col-md-2 col-sm-12 logos"><img src="../assets/images/logogobernacion.png" alt="logogobernacion"></div>
-    <div class="col-md-8 col-sm-12 text-center">
-      <div class="contcentralnav">
-        <h2>FERIAS DE LA EQUIDAD</h2>
+<div class="row mt-5">
+    <div class="col-6" >
+      <div *ngIf="mostrar==true" id="cardgrafica">
+        <ngx-charts-bar-vertical-stacked
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="listaMunicipios"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [legendTitle]="legendTitle"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [animations]="animations"
+        [showDataLabel]="true"
+        (select)="onSelect($event)">
+      </ngx-charts-bar-vertical-stacked>
       </div>
-      <div class="contcentralnav">
-        <h1>Gobernacion del Magdalena,Santa Marta</h1>
+      <div *ngIf="mostrar==false" >
+             <img id="imgferia" src="../assets/images/feria.jpg" alt="feria imagen">
       </div>
-    </div>
-    <div class="col-md-2 col-sm-12 logos"><img src="../assets/images/logofuerza.png" alt="logofuerza"></div>
-  </div>
-  
-  <div class="row mt-5">
-      <div class="col-lg-6 col-md-12" >
+       
+      </div>
+      <div class="col-6" >
         <mat-card id="cardtabla">
           <div class="row">
             <div class="col-2"></div>
@@ -64,11 +73,10 @@
                 </tr>
                 
               </table>
-                <div id="listpagin">
-                  <mat-paginator [pageSizeOptions]="[5, 10, 15]"
-                  aria-label="Select page of periodic elements"> 
-                 </mat-paginator>
-                </div>
+                <mat-paginator [pageSizeOptions]="[5, 10, 15]"
+                showFirstLastButtons 
+                aria-label="Select page of periodic elements">
+               </mat-paginator>
                <div class="mt-2">
                 <!-- <button class="btn btn-primary" (click)="VerMunicipios()">Ver Municipios</button> -->
                 <button class="btn btn-scam" (click)="VerGraficas()" type="button"  [disabled]="cargandodatos">
@@ -83,51 +91,4 @@
         </mat-card>
            
       </div>
-
-      <div class="col-lg-6 col-md-12" >
-        <div *ngIf="mostrar==true" id="cardgrafica">
-          <ngx-charts-bar-vertical-stacked
-          [view]="view"
-          [scheme]="colorScheme"
-          [results]="listaMunicipios"
-          [gradient]="gradient"
-          [xAxis]="showXAxis"
-          [yAxis]="showYAxis"
-          [legend]="showLegend"
-          [legendTitle]="legendTitle"
-          [showXAxisLabel]="showXAxisLabel"
-          [showYAxisLabel]="showYAxisLabel"
-          [xAxisLabel]="xAxisLabel"
-          [yAxisLabel]="yAxisLabel"
-          [animations]="animations"
-          [showDataLabel]="true"
-          (select)="onSelect($event)">
-        </ngx-charts-bar-vertical-stacked>
-        </div>
-        <div *ngIf="mostrar==true" id="cardgrafica2">
-        <ngx-charts-bar-horizontal-stacked
-          [view]="[400, 300]"
-          [scheme]="colorScheme"
-          [results]="listaMunicipios"
-          [gradient]="gradient"
-          [xAxis]="showXAxis"
-          [yAxis]="showYAxis"
-          [legend]="showLegend"
-          [legendTitle]="legendTitle"
-          [showXAxisLabel]="showXAxisLabel"
-          [showYAxisLabel]="showYAxisLabel"
-          [xAxisLabel]="'Registros'"
-          [yAxisLabel]="'Municipios'"
-          [showDataLabel]="true"
-          (select)="onSelect($event)">
-        </ngx-charts-bar-horizontal-stacked>
-        </div>
-        <div *ngIf="mostrar==false" >
-               <img id="imgferia" src="../assets/images/feria.jpg" alt="feria imagen">
-        </div>
-         
-        </div>
   </div>
-</div>
-
-
