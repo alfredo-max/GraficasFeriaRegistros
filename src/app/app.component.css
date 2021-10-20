@@ -1,0 +1,31 @@
+table {
+    width: 100%;
+  }
+
+.content{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.contcentralnav>h1{
+  font-family: 'Urbanist', sans-serif;
+  color: white;
+ }
+ .contcentralnav>h2{
+ font-family: plutocondHeavy;  
+ color: white;
+ }
+ #cardtabla{
+   background-color:rgb(250 , 248,248,0);
+   /* border-radius: 19px; 
+   border: 1px solid #804740; */
+ }
+ #cardgrafica{
+  background-color:rgba(255, 255, 255);
+  border-radius: 19px; 
+  border: 1px solid #804740;
+  height: 28rem;
+ }
+ #imgferia{
+   height: 900px;
+ }
