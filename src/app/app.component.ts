@@ -4,10 +4,11 @@ import {ScaleType } from '@swimlane/ngx-charts';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 export interface PeriodicElement {
+  position: string;
   name: string;
-  position: number;
   series:object[];
 }
  const MUNICIPIOS_DATA: PeriodicElement[] =[];
@@ -23,7 +24,9 @@ export class AppComponent implements OnInit,AfterViewInit {
   displayedColumns: string[] = ['select', 'position', 'name'];
   dataSource = new MatTableDataSource<PeriodicElement>(this.getMunicipiosData());
   selection = new SelectionModel<PeriodicElement>(true, []);
-
+   @ViewChild(MatSort, {static: true}) sort!: MatSort;
+   
+  
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
@@ -73,9 +76,13 @@ export class AppComponent implements OnInit,AfterViewInit {
    //tabla material
    
    constructor(private _municipioservice: MunicipiosService,private elem: ElementRef) { }
-   ngOnInit(): void { }
+   ngOnInit(): void {
+      // this.dataSource.sort=this.sort;
+    }
    ngAfterViewInit():void{  
     this.dataSource.paginator = this.paginator;
+     this.dataSource.sort=this.sort;
+
    }
    listaMunicipios=[];
    mostrar=false;
@@ -103,17 +110,14 @@ export class AppComponent implements OnInit,AfterViewInit {
   
 
   getMunicipiosData(){
-  
     this._municipioservice.getMunicipios().subscribe(data=>{
-      var i=1;
       data.forEach((element:any) => {
            const municipio: PeriodicElement={
-            position: i,
+            position: element.payload.doc.id,
             name:element.payload.doc.data().name,
             series:element.payload.doc.data().series
            }
            MUNICIPIOS_DATA.push(municipio); 
-          i++;
         } 
                 
        );
@@ -121,6 +125,8 @@ export class AppComponent implements OnInit,AfterViewInit {
     setTimeout(() => {
       this.VerMunicipios()
      }, 4000);
+
       return MUNICIPIOS_DATA;
   }
+  
 }

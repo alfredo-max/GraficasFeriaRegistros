@@ -11,9 +11,13 @@ table {
   font-family: 'Urbanist', sans-serif;
   color: white;
  }
- .contcentralnav>h2{
+ .contcentralnav>h2,#lemacambio{
  font-family: plutocondHeavy;  
  color: white;
+ font-weight: bold;
+ }
+ #lemacambio{
+ line-height : 15px;
  }
  #cardtabla{
    background-color:rgb(250 , 248,248,0);
@@ -27,7 +31,7 @@ table {
   height: 28rem;
  }
  #imgferia{
-   height: 900px;
+   height: 500px;
  }
  .btn-scam{
   width: 100%; 
