@@ -1,9 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 /* html, body { height: 100%; } */
+
 body{
-    background: #FF670A;
+    background: #FF670A; 
 }
+@media(min-width:751px){
+    body{  /*color fondo gobernacion*/
+        background-image: url(./assets/images/fondo.jpg);
+    }
+}
+
 @font-face {
     font-family: plutocondHeavy;
     src: url(assets/fonts/PlutoCondMedium.ttf) format("opentype");
