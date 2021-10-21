@@ -6,7 +6,16 @@ table {
   padding-left: 10%;
   padding-right: 10%;
 } */
-
+footer{
+  height: 150px;
+}
+.container{
+  min-height: calc(100vh-150px);
+}
+#contefooter{
+  margin-left: 8%;
+  margin-right: 8%;
+}
 .contcentralnav>h1{
   font-family: 'Urbanist', sans-serif;
   color: white;
