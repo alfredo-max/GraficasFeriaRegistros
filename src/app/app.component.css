@@ -1,58 +1,20 @@
-table {
-    width: 100%;
-  }
 
-/* .content{
-  padding-left: 10%;
-  padding-right: 10%;
-} */
-footer{
-  height: 150px;
-}
 .container{
   min-height: calc(100vh-150px);
 }
-#contefooter{
-  margin-left: 8%;
-  margin-right: 8%;
-}
-.contcentralnav>h1{
-  font-family: 'Urbanist', sans-serif;
-  color: white;
- }
- .contcentralnav>h2,#lemacambio{
- font-family: plutocondHeavy;  
- color: white;
- font-weight: bold;
- }
- #lemacambio{
- line-height : 15px;
- }
+
  #cardtabla{
    background-color:rgb(250 , 248,248,0);
    /* border-radius: 19px; 
    border: 1px solid #804740; */
  }
- #cardgrafica{
-  background-color:rgba(255, 255, 255);
-  border-radius: 19px; 
-  border: 1px solid #804740;
-  height: 28rem;
- }
- #imgferia{
+ 
+ /* #imgferia{
    height: 500px;
- }
- .btn-scam{
-  width: 100%; 
-  background-color: rgb(255, 255, 255);
-  color: #FF670A;
-  font-family: 'Urbanist', sans-serif;
-  border-radius: 12px;
-  border: 3px solid #FF670A;
-  }
+ } */
 
  /* // responsive */
- #cardgrafica2{
+ /* #cardgrafica2{
   background-color:rgba(255, 255, 255);
   border-radius: 19px; 
   border: 1px solid #804740;
@@ -62,8 +24,8 @@ footer{
   padding-right: 10%;
   display: none;
   visibility: hidden;
- }
- @media(max-width:750px){
+ } */
+ /* @media(max-width:750px){
    #cardgrafica{
     display: none;
     visibility: hidden;
@@ -72,8 +34,8 @@ footer{
     display: block;
     visibility: visible;
    }
-
-   .logos,#imgferia{
+    
+   #imgferia{
     display: none;
     visibility: hidden;
    }
@@ -81,4 +43,4 @@ footer{
      margin-top: 20px;
    }
 
- }
+ } */

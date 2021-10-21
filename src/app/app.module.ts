@@ -18,9 +18,19 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatSortModule } from '@angular/material/sort';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { GraficaBarVerticalComponent } from './components/grafica-bar-vertical/grafica-bar-vertical.component';
+import { GraficaBarHorizontalComponent } from './components/grafica-bar-horizontal/grafica-bar-horizontal.component';
+import { TablaComponent } from './components/tabla/tabla.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FooterComponent,
+    HeaderComponent,
+    GraficaBarVerticalComponent,
+    GraficaBarHorizontalComponent,
+    TablaComponent
   ],
   imports: [
     BrowserModule,

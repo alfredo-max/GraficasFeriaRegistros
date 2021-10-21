@@ -1,0 +1,15 @@
+#imgferia{
+    height: 500px;
+  }
+  #cardgrafica{
+    background-color:rgba(255, 255, 255);
+    border-radius: 19px; 
+    border: 1px solid #804740;
+    height: 28rem;
+   }
+   @media(max-width:750px){
+    #cardgrafica,#imgferia{
+     display: none;
+     visibility: hidden;
+    }
+  }

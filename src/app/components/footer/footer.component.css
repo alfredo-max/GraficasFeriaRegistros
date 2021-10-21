@@ -1,0 +1,16 @@
+footer{
+    height: 150px;
+  }
+
+  #lemacambio{
+    line-height : 15px;
+    font-family: plutocondHeavy;  
+    color: white;
+    font-weight: bold;
+}
+@media(max-width:750px){
+  .logos{
+   display: none;
+   visibility: hidden;
+  }
+}

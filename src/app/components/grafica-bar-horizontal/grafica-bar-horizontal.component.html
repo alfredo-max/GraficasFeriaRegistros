@@ -1,0 +1,18 @@
+<div *ngIf="listaMunicipios.length!=0" id="cardgrafica2">
+<ngx-charts-bar-horizontal-stacked
+ [view]="view"
+ [scheme]="colorScheme"
+ [results]="listaMunicipios"
+ [gradient]="gradient"
+ [xAxis]="showXAxis"
+ [yAxis]="showYAxis"
+ [legend]="showLegend"
+ [legendTitle]="legendTitle"
+ [showXAxisLabel]="showXAxisLabel"
+ [showYAxisLabel]="showYAxisLabel"
+ [xAxisLabel]="'Registros'"
+ [yAxisLabel]="'Municipios'"
+ [showDataLabel]="true"
+ (select)="onSelect($event)">
+</ngx-charts-bar-horizontal-stacked>
+</div>

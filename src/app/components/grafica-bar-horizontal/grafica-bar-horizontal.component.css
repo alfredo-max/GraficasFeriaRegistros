@@ -1,0 +1,17 @@
+#cardgrafica2{
+    background-color:rgba(255, 255, 255);
+    border-radius: 19px; 
+    border: 1px solid #804740;
+    height: 19rem; 
+    width: 28rem;
+    padding-left: 10%;
+    padding-right: 10%;
+    display: none;
+    visibility: hidden;
+   }
+   @media(max-width:750px){
+    #cardgrafica2{
+     display: block;
+     visibility: visible;
+    }
+  }

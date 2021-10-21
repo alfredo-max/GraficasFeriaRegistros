@@ -1,0 +1,19 @@
+.contcentralnav>h1{
+    font-family: 'Urbanist', sans-serif;
+    color: white;
+   }
+   .contcentralnav>h2,#lemacambio{
+   font-family: plutocondHeavy;  
+   color: white;
+   font-weight: bold;
+   }
+   #lemacambio{
+   line-height : 15px;
+   }
+
+   @media(max-width:750px){
+    .logos{
+     display: none;
+     visibility: hidden;
+    }
+  }

@@ -1,0 +1,24 @@
+
+<div *ngIf="listaMunicipios.length!=0" id="cardgrafica">
+    <ngx-charts-bar-vertical-stacked
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="listaMunicipios"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [legendTitle]="legendTitle"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [animations]="animations"
+    [showDataLabel]="true"
+    (select)="onSelect($event)">
+    </ngx-charts-bar-vertical-stacked>
+</div>
+<div *ngIf="listaMunicipios.length==0" class="text-center" >
+    <img id="imgferia" src="../../../assets/images/feria.jpg" alt="feria imagen">
+</div>  
+

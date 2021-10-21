@@ -1,161 +1,32 @@
 
 <!-- <div class="content"> -->
 <div class="container">
-  <div class="row border-3 border-bottom border-white">
-    <div class="col-md-2 col-sm-12 logos"><img src="../assets/images/logogobernacion.png" alt="logogobernacion"></div>
-    <div class="col-md-8 col-sm-12 text-center">
-      <div class="contcentralnav">
-        <h2>FERIAS DE LA EQUIDAD</h2>
-      </div>
-      <div class="contcentralnav">
-        <h1>Gobernacion del Magdalena,Santa Marta</h1>
-      </div>
-    </div>
-    <div class="col-md-2 col-sm-12 logos">
-      <div class="text-center">
-        <img src="../assets/images/logofuerza.png" alt="logofuerza">
-      </div>   
-      <div>
-        <h3 id="lemacambio" class="text-center">La fuerza <br>del cambio</h3>
-      </div>  
-  </div>
-  </div>
- 
+  <app-header></app-header>
+   
   <div class="row mt-5 ">
       <div class="col-lg-6 col-md-12" >
         <mat-card id="cardtabla">
           <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 " matSort>
-                 
-                <!-- Checkbox Column -->
-                <ng-container matColumnDef="select">
-                  <th mat-header-cell *matHeaderCellDef>
-                    <mat-checkbox (change)="$event ? masterToggle() : null"
-                                  [checked]="selection.hasValue() && isAllSelected()"
-                                  [indeterminate]="selection.hasValue() && !isAllSelected()"
-                                  [aria-label]="checkboxLabel()"
-                                  [color]="'warn'"
-                                  >
-                    </mat-checkbox>
-                  </th>
-                  <td mat-cell *matCellDef="let row">
-                    <mat-checkbox (click)="$event.stopPropagation()"
-                                  (change)="$event ? selection.toggle(row) : null"
-                                  [checked]="selection.isSelected(row)"
-                                  [aria-label]="checkboxLabel(row)"
-                                  [color]="'warn'"
-                                  >
-                    </mat-checkbox>
-                  </td>
-                </ng-container>
-              
-                <!-- Position Column -->
-                <ng-container matColumnDef="position">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
-                  <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                </ng-container>
-              
-                <!-- Name Column -->
-                <ng-container matColumnDef="name">
-                  <th mat-header-cell *matHeaderCellDef> Municipio </th>
-                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-                </ng-container>
-              
-            
-              
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"
-                    (click)="selection.toggle(row)">
-                </tr>
-                
-              </table>
-                <div id="listpagin">
-                  <mat-paginator [pageSizeOptions]="[5, 10, 15]"
-                  aria-label="Select page of periodic elements"> 
-                 </mat-paginator>
-                </div>
-               <div class="mt-2">
-                <!-- <button class="btn btn-primary" (click)="VerMunicipios()">Ver Municipios</button> -->
-                <button class="btn btn-scam" (click)="VerGraficas()" type="button"  [disabled]="cargandodatos">
-                  <span *ngIf="cargandodatos" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                  Ver Graficas
-                </button>
-              </div> 
+              <app-tabla></app-tabla>
             </div>
             <div class="col-2"></div>
-          </div>
-                 
-        </mat-card>
-           
+          </div>            
+        </mat-card>         
       </div>
-
       <div class="col-lg-6 col-md-12" >
-        <div *ngIf="mostrar==true" id="cardgrafica">
-          <ngx-charts-bar-vertical-stacked
-          [view]="view"
-          [scheme]="colorScheme"
-          [results]="listaMunicipios"
-          [gradient]="gradient"
-          [xAxis]="showXAxis"
-          [yAxis]="showYAxis"
-          [legend]="showLegend"
-          [legendTitle]="legendTitle"
-          [showXAxisLabel]="showXAxisLabel"
-          [showYAxisLabel]="showYAxisLabel"
-          [xAxisLabel]="xAxisLabel"
-          [yAxisLabel]="yAxisLabel"
-          [animations]="animations"
-          [showDataLabel]="true"
-          (select)="onSelect($event)">
-        </ngx-charts-bar-vertical-stacked>
-        </div>
-        <div *ngIf="mostrar==true" id="cardgrafica2">
-        <ngx-charts-bar-horizontal-stacked
-          [view]="[400, 300]"
-          [scheme]="colorScheme"
-          [results]="listaMunicipios"
-          [gradient]="gradient"
-          [xAxis]="showXAxis"
-          [yAxis]="showYAxis"
-          [legend]="showLegend"
-          [legendTitle]="legendTitle"
-          [showXAxisLabel]="showXAxisLabel"
-          [showYAxisLabel]="showYAxisLabel"
-          [xAxisLabel]="'Registros'"
-          [yAxisLabel]="'Municipios'"
-          [showDataLabel]="true"
-          (select)="onSelect($event)">
-        </ngx-charts-bar-horizontal-stacked>
-        </div>
-        <div *ngIf="mostrar==false" class="text-center" >
-               <img id="imgferia" src="../assets/images/feria.jpg" alt="feria imagen">
-        </div>
-         
-        </div>
+        <div>
+          <div>
+            <app-grafica-bar-vertical></app-grafica-bar-vertical>
+            <app-grafica-bar-horizontal></app-grafica-bar-horizontal>
+          </div>
+        </div>     
   </div>
 </div>
-<div id="contefooter" class="mt-5 border-3 border-top border-white">
-  <footer>
-    <div class="row">
-      <div class="col-4"></div>
-      <div class="col-4 row">
-          <div class="logos text col-6"><img  src="../assets/images/logogobernacion.png" alt="logogobernacion"></div>
-          <div class="logos col-6 ">
-            <div class="text-center">
-              <img  src="../assets/images/logofuerza.png" alt="logofuerza">
-            </div>   
-            <div>
-              <h3 id="lemacambio" class="text-center">La fuerza <br>del cambio</h3>
-            </div>  
-        </div>
-      </div>
-      <div class="col-4"></div>
-    </div>
-    <h3 class="text-white">Powered By:Oficina de Tecnologías de la Información</h3>
-  </footer>
+<app-footer></app-footer>
 </div>
+
 
 
 
