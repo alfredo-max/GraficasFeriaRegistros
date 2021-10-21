@@ -8,6 +8,8 @@ body{
 @media(min-width:751px){
     body{  /*color fondo gobernacion*/
         background-image: url(./assets/images/fondo.jpg);
+        /* background-size: cover; */
+        /* background-repeat: no-repeat; */
     }
 }
 
