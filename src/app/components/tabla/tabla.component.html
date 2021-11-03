@@ -1,4 +1,5 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 " matSort>
+<div id="conttable">
+<table mat-table [dataSource]="dataSource"  matSort>
                  
     <!-- Checkbox Column -->
     <ng-container matColumnDef="select">
@@ -7,7 +8,6 @@
                       [checked]="selection.hasValue() && isAllSelected()"
                       [indeterminate]="selection.hasValue() && !isAllSelected()"
                       [aria-label]="checkboxLabel()"
-                      [color]="'warn'"
                       >
         </mat-checkbox>
       </th>
@@ -16,11 +16,11 @@
                       (change)="$event ? selection.toggle(row) : null"
                       [checked]="selection.isSelected(row)"
                       [aria-label]="checkboxLabel(row)"
-                      [color]="'warn'"
                       >
         </mat-checkbox>
       </td>
     </ng-container>
+    <!-- [color]="'warn'" -->
   
     <!-- Position Column -->
     <ng-container matColumnDef="position">
@@ -47,8 +47,9 @@
     aria-label="Select page of periodic elements"> 
    </mat-paginator>
   </div>
+</div>
   <div class="mt-2">
-    <!-- <button class="btn btn-primary" (click)="VerMunicipios()">Ver Municipios</button> -->
+     <!-- <button class="btn btn-primary" (click)="VerMunicipios()">Ver Municipios</button>  -->
     <button class="btn btn-scam" (click)="VerGraficas()" type="button"  [disabled]="cargandodatos">
       <span *ngIf="cargandodatos" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
       Ver Graficas

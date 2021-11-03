@@ -7,9 +7,10 @@ body{
 }
 @media(min-width:751px){
     body{  /*color fondo gobernacion*/
-        background-image: url(./assets/images/fondo.jpg);
-        /* background-size: cover; */
-        /* background-repeat: no-repeat; */
+        background-image: url(./assets/images/fondo2.png);
+        /* background-size: cover;*/
+         background-repeat: no-repeat; 
+         background-size: 100% 100%;
     }
 }
 
@@ -17,5 +18,11 @@ body{
     font-family: plutocondHeavy;
     src: url(assets/fonts/PlutoCondMedium.ttf) format("opentype");
   }
+/* 
+  @font-face {
+    font-family: plutoligth;
+    src: url(assets/fonts/Pluto\ Light.ttf) format("opentype");
+  } */
+
 
 

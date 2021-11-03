@@ -1,17 +1,37 @@
 #cardgrafica2{
-    background-color:rgba(255, 255, 255);
-    border-radius: 19px; 
-    border: 1px solid #804740;
+    /* background-color:rgba(255, 255, 255); */
+    background-color:#FF670A;
+    /* border-radius: 19px; 
+    border: 1px solid #804740; */
+    border-radius: 25px;
+    border: 7px solid #ffffff;
     height: 19rem; 
-    width: 28rem;
+    width: 30rem;
     padding-left: 10%;
     padding-right: 10%;
     display: none;
     visibility: hidden;
+    color: #ffffff;
    }
    @media(max-width:750px){
     #cardgrafica2{
      display: block;
      visibility: visible;
     }
+  }
+  ::ng-deep .legend-label-text{
+    color: var(--primary-color,#ffffff) !important;
+  }
+  ::ng-deep .legend-labels{
+    background-color: var(--primary-color,#FF670A) !important;
+  }
+  
+
+  ::ng-deep .ngx-charts-legend-entry{
+    color: var(--primary-color,#ffffff) !important;  
+  }
+  
+  /* flecha ordenar */
+  ::ng-deep .mat-sort-header-stem , ::ng-deep .mat-sort-header-pointer-right ,  ::ng-deep .mat-sort-header-pointer-left,::ng-deep .mat-sort-header-pointer-middle{
+    color: var(--primary-color,#ffffff) !important;  
   }

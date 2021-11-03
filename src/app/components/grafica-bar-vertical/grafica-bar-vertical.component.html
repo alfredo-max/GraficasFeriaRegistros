@@ -1,5 +1,5 @@
 
-<div *ngIf="listaMunicipios.length!=0" id="cardgrafica" class="shadow-lg p-3 mb-5 bg-white rounded">
+<div *ngIf="listaMunicipios.length!=0" id="cardgrafica" class="p-3 mb-5">
     <ngx-charts-bar-vertical-stacked
     [view]="view"
     [scheme]="colorScheme"
@@ -15,7 +15,8 @@
     [yAxisLabel]="yAxisLabel"
     [animations]="animations"
     [showDataLabel]="true"
-    (select)="onSelect($event)">
+    (select)="onSelect($event)"
+    style="fill: #ffffff;">
     </ngx-charts-bar-vertical-stacked>
 </div>
 <div *ngIf="listaMunicipios.length==0" class="text-center" >

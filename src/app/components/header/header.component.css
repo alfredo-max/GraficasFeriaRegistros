@@ -1,11 +1,17 @@
-.contcentralnav>h1{
-    font-family: 'Urbanist', sans-serif;
+.contcentralnav>h2{
+    font-family: 'Urbanist',sans-serif;
     color: white;
+    font-size: 21px;
+
    }
-   .contcentralnav>h2,#lemacambio{
+   .contcentralnav>h1,#lemacambio{
    font-family: plutocondHeavy;  
    color: white;
    font-weight: bold;
+   }
+   .contcentralnav>h1{
+    font-size: 280%;
+    /* letter-spacing: 3px */
    }
    #lemacambio{
    line-height : 15px;
@@ -17,3 +23,13 @@
      visibility: hidden;
     }
   }
+  #imglogofuerza{
+    width: 55%;
+
+  }
+#contheader{
+  border-bottom: 3px solid white;
+}
+#contlogofuerza{
+  border-left: 2px solid white;
+}

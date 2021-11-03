@@ -23,7 +23,7 @@ export class GraficaBarVerticalComponent implements OnInit {
   animations: boolean = true;
   
   colorScheme = {
-    domain: ['#FF670A', '#FFAD7C', '#AAAAAA'],group: ScaleType.Ordinal,name:"colores",selectable:true
+    domain: ['#FFFFFF', '#fcac7c'],group: ScaleType.Ordinal,name:"colores",selectable:true
   }
   constructor(private _EnviarDatosGraficaService : EnviarDatosGraficaService) { }
   listaMunicipios=[];

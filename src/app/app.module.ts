@@ -30,7 +30,7 @@ import { TablaComponent } from './components/tabla/tabla.component';
     HeaderComponent,
     GraficaBarVerticalComponent,
     GraficaBarHorizontalComponent,
-    TablaComponent
+    TablaComponent,
   ],
   imports: [
     BrowserModule,

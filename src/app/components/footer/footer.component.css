@@ -1,7 +1,13 @@
 footer{
     height: 150px;
   }
+#contefooter{
+  border-top: 3px solid white;
+}
 
+#contlogofuerza{
+  border-left: 2px solid white;
+}
   #lemacambio{
     line-height : 15px;
     font-family: plutocondHeavy;  
@@ -13,4 +19,9 @@ footer{
    display: none;
    visibility: hidden;
   }
+}
+
+#textpowered{
+   position: relative; 
+   top: 40%; 
 }

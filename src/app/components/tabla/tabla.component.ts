@@ -11,7 +11,6 @@ export interface PeriodicElement {
   name: string;
   series:object[];
 }
- const MUNICIPIOS_DATA: PeriodicElement[] =[];
 
 @Component({
   selector: 'app-tabla',
@@ -19,6 +18,9 @@ export interface PeriodicElement {
   styleUrls: ['./tabla.component.css']
 })
 export class TablaComponent implements OnInit,AfterViewInit {
+
+
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   //tabla material
   displayedColumns: string[] = ['select', 'position', 'name'];
@@ -56,6 +58,11 @@ export class TablaComponent implements OnInit,AfterViewInit {
   
   constructor(private _municipioservice: MunicipiosService,private _EnviarDatosGraficaService : EnviarDatosGraficaService,private elem: ElementRef) { }
 
+    // verificar conexion a internet 
+
+    
+      MUNICIPIOS_DATA: PeriodicElement[] =[];
+
 
   ngOnInit(): void {
   }
@@ -66,11 +73,6 @@ export class TablaComponent implements OnInit,AfterViewInit {
    listaMunicipios=[];
    mostrar=false;
    cargandodatos=true;//para el spinner
-  VerMunicipios(){
-    this.dataSource.data=MUNICIPIOS_DATA;
-    this.cargandodatos=false;
-  }
-
   VerGraficas(){
     this.municipios=[];
     for (let item of this.selection.selected ){
@@ -88,23 +90,23 @@ export class TablaComponent implements OnInit,AfterViewInit {
   }
   
   getMunicipiosData(){
-    this._municipioservice.getMunicipios().subscribe(data=>{
+    this._municipioservice.getMunicipios().subscribe(data=>{      
       data.forEach((element:any) => {
            const municipio: PeriodicElement={
             position: element.payload.doc.id,
             name:element.payload.doc.data().name,
             series:element.payload.doc.data().series
            }
-           MUNICIPIOS_DATA.push(municipio); 
+           this.MUNICIPIOS_DATA.push(municipio); 
         } 
                 
-       );
+       )
+       this.dataSource.data=this.MUNICIPIOS_DATA;
+       this.cargandodatos=false;
     })
-    setTimeout(() => {
-      this.VerMunicipios()
-     }, 4000);
-
-      return MUNICIPIOS_DATA;
+   
+      return this.MUNICIPIOS_DATA;
   }
-
+  
+ 
 }
