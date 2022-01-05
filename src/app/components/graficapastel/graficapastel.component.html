@@ -2,7 +2,7 @@
   <div class="row">
         <div #containerRef class="col-md-6">
             <ngx-charts-advanced-pie-chart
-            [view]="[containerRef.offsetWidth-20, 400]"
+            [view]="[containerRef.offsetWidth-20, containerRef.offsetHeight]"
             [scheme]="colorScheme"
             [results]="Modalidad_Data"
             [percentageFormatting]="percentageFormatting"
@@ -16,7 +16,7 @@
         </div>
         <div #containerRef2 class="col-md-6">
             <ngx-charts-advanced-pie-chart
-            [view]="[containerRef2.offsetWidth-20, 400]"
+            [view]="[containerRef2.offsetWidth-20, containerRef.offsetHeight]"
             [scheme]="colorScheme"
             [results]="Tipo_Data"
             label="Tipo de participación"
@@ -30,7 +30,10 @@
         </div>
     </div>
     <div class="row">
-      <button type="button" class="btn btn-success" (click)="descargarexcel()"><i class="fas fa-file-excel"></i>Descargar excel</button> 
+      <h3 id="numtext">Número de Postulados: {{ numeropostulados }} </h3>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-success plutobold" (click)="descargarexcel()"><i class="fas fa-file-excel mr-2"></i>Descargar excel</button> 
     </div>
 
 

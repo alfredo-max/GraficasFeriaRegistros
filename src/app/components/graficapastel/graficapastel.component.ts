@@ -23,6 +23,7 @@ export class GraficapastelComponent implements OnInit {
     domain: ['#FF9D1C', '#2F80B7', '#FA2D26', '#AAAAAA'], group: ScaleType.Ordinal, name: "colores", selectable: true
   }
   //Variables contadoras
+  numeropostulados=0;
   Modalidad_Data: PeriodicElement[] = [];
   ruta=0;
   hibridamtb=0;
@@ -44,6 +45,7 @@ export class GraficapastelComponent implements OnInit {
   }
   obtenerRegistros() {
     this._FirestoreserviceService.getDatos().subscribe(data => {
+      this.numeropostulados=data.length;
       data.forEach((element: any) => {
         const registro = element.payload.doc.data()
         this.lista_datos.push(registro);
@@ -99,15 +101,15 @@ export class GraficapastelComponent implements OnInit {
     })
   }
   onSelect(data: any): void {
-    console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+    // console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
 
   onActivate(data: any): void {
-    console.log('Activate', JSON.parse(JSON.stringify(data)));
+    // console.log('Activate', JSON.parse(JSON.stringify(data)));
   }
 
   onDeactivate(data: any): void {
-    console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+    // console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
 
   //Para redondear los porcentajes en las graficas , se pasa en solo 1

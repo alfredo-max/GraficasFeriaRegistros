@@ -2,16 +2,41 @@
     padding-top: 10px;
     padding-bottom: 7px;
     color: var(--primary-color,#ffffff) !important;
+    font-family: plutoBold !important;
+    font-size:20px !important;
+
   }
 
   
 ::ng-deep .total-label{
     color: var(--primary-color,#ffffff) !important;
+    font-family: plutoBold !important;
+    font-size:16px !important;
   }
 
 ::ng-deep .advanced-pie-legend-wrapper{
   height: 200px;
   color: var(--primary-color,#c45555) !important;
+
 }
 
- 
+#numtext{
+   color: white;
+   font-family: plutoBlack;
+   font-size: 20px;
+}
+.plutobold{
+  font-family: plutoBold;
+  font-size: 14px;
+}
+
+@media(max-width:750px){
+  #numtext{
+    font-size: 14px;
+ }
+ .plutobold{
+   font-size: 12px;
+ }
+
+
+}

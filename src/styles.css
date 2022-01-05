@@ -1,9 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
-@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+/* @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"; */
 /* html, body { height: 100%; } */
 
 html, body { height: 100%; }
 body { margin: 0;background-color: #FF6010}
 
+@font-face {
+    font-family: plutoMediun;
+    src: url(assets/fonts/PlutoMedium.ttf);
+  }
+  @font-face {
+    font-family: plutoCondMediun;
+    src: url(assets/fonts/PlutoCondMedium.ttf);
+  }
 
+  @font-face {
+    font-family: plutobold;
+    src: url(assets/fonts/PlutoBold.ttf);
+  }
+  @font-face {
+    font-family: plutoRegular;
+    src: url(assets/fonts/PlutoRegular.ttf);
+  }
 
+  @font-face {
+    font-family: plutoBlack;
+    src: url(assets/fonts/PlutoBlack.ttf);
+  }
