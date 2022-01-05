@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreserviceService } from 'src/app/services/firestoreservice.service';
 import { ScaleType } from '@swimlane/ngx-charts';
+import { ExportExcelService } from 'src/app/services/export-excel.service';
 
 export interface PeriodicElement {
   name: string;
@@ -31,8 +32,12 @@ export class GraficapastelComponent implements OnInit {
   individual=0;
   equipo=0;
 
+   //Excel
+   lista_datos: any[] =[];
   constructor(
-    private _FirestoreserviceService: FirestoreserviceService) { }
+    private _FirestoreserviceService: FirestoreserviceService,
+    private _ExportarexcelService: ExportExcelService
+    ) { }
 
   ngOnInit(): void {
     this.obtenerRegistros()
@@ -41,6 +46,8 @@ export class GraficapastelComponent implements OnInit {
     this._FirestoreserviceService.getDatos().subscribe(data => {
       data.forEach((element: any) => {
         const registro = element.payload.doc.data()
+        this.lista_datos.push(registro);
+
         //Modalidad 
         switch (registro.modalidad) {
           case "Ruta":
@@ -106,5 +113,8 @@ export class GraficapastelComponent implements OnInit {
   //Para redondear los porcentajes en las graficas , se pasa en solo 1
   percentageFormatting(c:any) {
     return Math.round(c);
+  }
+  descargarexcel(){
+    this._ExportarexcelService.exportToExcel(this.lista_datos, 'Registros Postulados')
   }
 }

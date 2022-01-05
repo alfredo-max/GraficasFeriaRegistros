@@ -1,27 +1,68 @@
-footer{
-    height: 150px;
-  }
-#contefooter{
-  border-top: 3px solid white;
+
+#power2{
+  display: none;
+  visibility: hidden;
+}
+.rowfooter{
+  display: flex;
+  margin:auto;
+  width: 100%;
+}
+.rowfooter2{
+  display: none;
+  visibility: hidden;
+}
+.colfooter1{
+  width: 30%;
+}
+.colfooter2{
+  width: 40%;
 }
 
-#contlogofuerza{
-  border-left: 2px solid white;
+.colfooter21{
+  /* position: relative;
+  left: 30%; */
+  margin-left: 37%;
 }
-  #lemacambio{
-    line-height : 15px;
-    font-family: plutocondHeavy;  
-    color: white;
-    font-weight: bold;
+
+/* .col1 {
+width: 2%;
 }
-@media(max-width:750px){
-  .logos{
+.col2 {
+width: 98%;
+} */
+
+ @media(max-width:750px){
+  /* .logos{
    display: none;
    visibility: hidden;
+  } */
+  .rowfooter {
+    display: none;
+    visibility: hidden;
   }
-}
-
-#textpowered{
+  .rowfooter2{
+    display: inline;
+    visibility: visible;
+  }
+   /* #power1{
+    display: none;
+    visibility: hidden;
+   }
+   #power2{
+    display: inline;
+    visibility: visible;
+  } */
+  /* .colfooter1{
+    width: 100%;
+  }
+  .colfooter2{
+    width: 100%;
+  } */
+} 
+.textpowered{
    position: relative; 
-   top: 40%; 
+   font-family: Arial;
+   top: 80%; 
+   font-size: 12px;
 }
