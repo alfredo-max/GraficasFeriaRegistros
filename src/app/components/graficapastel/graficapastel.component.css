@@ -1,0 +1,17 @@
+::ng-deep .ng-star-inserted{
+    padding-top: 10px;
+    padding-bottom: 7px;
+    color: var(--primary-color,#ffffff) !important;
+  }
+
+  
+::ng-deep .total-label{
+    color: var(--primary-color,#ffffff) !important;
+  }
+
+::ng-deep .advanced-pie-legend-wrapper{
+  height: 200px;
+  color: var(--primary-color,#c45555) !important;
+}
+
+ 
