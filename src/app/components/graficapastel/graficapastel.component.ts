@@ -3,6 +3,29 @@ import { FirestoreserviceService } from 'src/app/services/firestoreservice.servi
 import { ScaleType } from '@swimlane/ngx-charts';
 import { ExportExcelService } from 'src/app/services/export-excel.service';
 
+export interface PostuladoElement {
+  tipo_de_identificacion:string,
+  numero_de_identificacion:number,
+  nombres:string,
+  apellidos:string,
+  telefono: number,
+  email:string,
+  genero:string,
+  sexo:string,
+  pais:string,
+  departamento:string,
+  municipio:string,
+  direccion:string,
+  descri:string,
+  modalidad:string,
+  tipo:string,
+  nombreEquipo:string,
+  eps:string, 
+  facebook:string,
+  instagram:string,
+  twitter:string,
+  fecha:string,
+ }
 export interface PeriodicElement {
   name: string;
   value: number;
@@ -47,7 +70,40 @@ export class GraficapastelComponent implements OnInit {
     this._FirestoreserviceService.getDatos().subscribe(data => {
       this.numeropostulados=data.length;
       data.forEach((element: any) => {
-        const registro = element.payload.doc.data()
+
+        const registro: PostuladoElement={
+          tipo_de_identificacion:element.payload.doc.data().tipo_de_identificacion,
+          numero_de_identificacion:element.payload.doc.data().numero_de_identificacion,
+
+          nombres:element.payload.doc.data().nombre,
+          apellidos:element.payload.doc.data().apellido,
+
+          telefono: element.payload.doc.data().telefono,
+          email:element.payload.doc.data().email,
+
+          genero:element.payload.doc.data().genero,
+          sexo:element.payload.doc.data().sexo,
+
+          pais:element.payload.doc.data().pais,
+          departamento:element.payload.doc.data().departamento,
+
+          direccion:element.payload.doc.data().direccion,
+          municipio:element.payload.doc.data().ciudad,
+
+          descri:element.payload.doc.data().descripcion_bicicleta,
+          modalidad:element.payload.doc.data().modalidad,
+
+          tipo:element.payload.doc.data().tipo_de_participacion,
+          nombreEquipo:element.payload.doc.data().nombreEquipo,
+
+          eps:element.payload.doc.data().eps,
+          fecha:element.payload.doc.data().fecha,
+
+          facebook:element.payload.doc.data().facebook,
+          instagram:element.payload.doc.data().instagram,
+          twitter:element.payload.doc.data().twitter,
+        }
+
         this.lista_datos.push(registro);
 
         //Modalidad 
@@ -62,7 +118,7 @@ export class GraficapastelComponent implements OnInit {
                 this.hibrida+=1;
           break;
         }
-        switch (registro.tipo_de_participacion) {
+        switch (registro.tipo) {
           case "Individual":
                  this.individual+=1;
             break;

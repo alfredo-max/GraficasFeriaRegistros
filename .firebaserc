@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "municipios-datos"
-  }
+    "default": "registrosciclismo",
+    "registrociclismograficas": "registrosciclismo"
+  },
+  "targets": {}
 }

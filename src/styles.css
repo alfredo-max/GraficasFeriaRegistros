@@ -2,8 +2,8 @@
 /* @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css"; */
 /* html, body { height: 100%; } */
 
-html, body { height: 100%; }
-body { margin: 0;background-color: #FF6010}
+/* html, body { height: 100%; }
+body { margin: 0;background-color: #FF6010} */
 
 @font-face {
     font-family: plutoMediun;
@@ -26,4 +26,30 @@ body { margin: 0;background-color: #FF6010}
   @font-face {
     font-family: plutoBlack;
     src: url(assets/fonts/PlutoBlack.ttf);
+  }
+
+  html {
+    min-height: 100%;
+    position: relative;
+  }
+  body {
+    margin: 0;
+    margin-bottom: 100px;
+    background-color: #FF670A
+  }
+  footer {
+    /* background-color: black; */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* height: 40px; */
+    color: white;
+  }
+  
+  @media(max-width:720px){
+    .body{
+      margin-bottom: 0px;
+      position: relative;
+      bottom: 100%;
+    }
   }
