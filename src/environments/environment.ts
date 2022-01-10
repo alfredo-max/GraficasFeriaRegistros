@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyBmJu3io7onIvfxsQ1NNEtrpFlTXugNxMc",
-    authDomain: "vueltaciclista-e0698.firebaseapp.com",
-    projectId: "vueltaciclista-e0698",
-    storageBucket: "vueltaciclista-e0698.appspot.com",
-    messagingSenderId: "255398999937",
-    appId: "1:255398999937:web:1881e193742a19ee8e1a80"
+    apiKey: "AIzaSyCMdwETrRZV1F93Cgb5hjL7ZDjEfwVZVYg",
+  authDomain: "consultacajanal.firebaseapp.com",
+  projectId: "consultacajanal",
+  storageBucket: "consultacajanal.appspot.com",
+  messagingSenderId: "901077608167",
+  appId: "1:901077608167:web:c974966afc05a2f21f2442",
+  measurementId: "G-YZ5MP2FL5L"
   }
 };
 

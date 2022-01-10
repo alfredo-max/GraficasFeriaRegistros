@@ -4,27 +4,9 @@ import { ScaleType } from '@swimlane/ngx-charts';
 import { ExportExcelService } from 'src/app/services/export-excel.service';
 
 export interface PostuladoElement {
-  tipo_de_identificacion:string,
-  numero_de_identificacion:number,
-  nombres:string,
-  apellidos:string,
-  telefono: number,
-  email:string,
-  genero:string,
-  sexo:string,
-  pais:string,
-  departamento:string,
-  municipio:string,
-  direccion:string,
-  descri:string,
-  modalidad:string,
-  tipo:string,
-  nombreEquipo:string,
-  eps:string, 
-  facebook:string,
-  instagram:string,
-  twitter:string,
   fecha:string,
+  opcion_elegida:string,
+  opcion_propuesta:string,
  }
 export interface PeriodicElement {
   name: string;
@@ -47,14 +29,12 @@ export class GraficapastelComponent implements OnInit {
   }
   //Variables contadoras
   numeropostulados=0;
-  Modalidad_Data: PeriodicElement[] = [];
-  ruta=0;
-  hibridamtb=0;
-  hibrida=0;
+  OpcionesElegidas_Data: PeriodicElement[] = [];
+  sedeUni=0;
+  sedeAdmin=0;
+  CentroEmp=0;
+  InstitutoForm=0;
 
-  Tipo_Data: PeriodicElement[] = [];
-  individual=0;
-  equipo=0;
 
    //Excel
    lista_datos: any[] =[];
@@ -68,90 +48,54 @@ export class GraficapastelComponent implements OnInit {
   }
   obtenerRegistros() {
     this._FirestoreserviceService.getDatos().subscribe(data => {
+      if(this.numeropostulados>0){
+        this.resetVariables();
+      }
       this.numeropostulados=data.length;
       data.forEach((element: any) => {
 
         const registro: PostuladoElement={
-          tipo_de_identificacion:element.payload.doc.data().tipo_de_identificacion,
-          numero_de_identificacion:element.payload.doc.data().numero_de_identificacion,
-
-          nombres:element.payload.doc.data().nombre,
-          apellidos:element.payload.doc.data().apellido,
-
-          telefono: element.payload.doc.data().telefono,
-          email:element.payload.doc.data().email,
-
-          genero:element.payload.doc.data().genero,
-          sexo:element.payload.doc.data().sexo,
-
-          pais:element.payload.doc.data().pais,
-          departamento:element.payload.doc.data().departamento,
-
-          direccion:element.payload.doc.data().direccion,
-          municipio:element.payload.doc.data().ciudad,
-
-          descri:element.payload.doc.data().descripcion_bicicleta,
-          modalidad:element.payload.doc.data().modalidad,
-
-          tipo:element.payload.doc.data().tipo_de_participacion,
-          nombreEquipo:element.payload.doc.data().nombreEquipo,
-
-          eps:element.payload.doc.data().eps,
           fecha:element.payload.doc.data().fecha,
-
-          facebook:element.payload.doc.data().facebook,
-          instagram:element.payload.doc.data().instagram,
-          twitter:element.payload.doc.data().twitter,
+          opcion_elegida:element.payload.doc.data().opcion_elegida,
+          opcion_propuesta:element.payload.doc.data().opcion_propuesta,
         }
 
         this.lista_datos.push(registro);
 
         //Modalidad 
-        switch (registro.modalidad) {
-          case "Ruta":
-                 this.ruta+=1;
+        switch (registro.opcion_elegida) {
+          case "Sede Universitaria del Centro Cambia":
+                 this.sedeUni+=1;
             break;
-          case "Híbrida MTB":
-                this.hibridamtb+=1
+          case "Sede Administrativa de la Gobernacion del Magdalena":
+                this.sedeAdmin+=1
           break;
-          case "Híbrida":
-                this.hibrida+=1;
+          case "Centro de Emprendimiento":
+                this.CentroEmp+=1;
           break;
-        }
-        switch (registro.tipo) {
-          case "Individual":
-                 this.individual+=1;
-            break;
-          case "Equipo":
-                this.equipo+=1
+          case "Instituto de Formación para el Trabajo":
+            this.InstitutoForm+=1;
           break;
         }
 
       })
 
-      this.Modalidad_Data=[
+      this.OpcionesElegidas_Data=[
         {
-          name: "Ruta",
-          value: this.ruta
+          name: "Sede Universitaria del Centro Cambia",
+          value: this.sedeUni
         },
         {
-          name: "Híbrida MTB",
-          value: this.hibridamtb
+          name: "Sede Administrativa de la Gobernacion del Magdalena",
+          value: this.sedeAdmin
         },
         {
-          name: "Híbrida",
-          value: this.hibrida
-        }
-      ]
-
-      this.Tipo_Data=[
-        {
-          name: "Individual",
-          value: this.individual
+          name: "Centro de Emprendimiento",
+          value: this.CentroEmp
         },
         {
-          name: "Equipo",
-          value: this.equipo
+          name: "Instituto de Formación para el Trabajo",
+          value: this.InstitutoForm
         }
       ]
     })
@@ -174,5 +118,15 @@ export class GraficapastelComponent implements OnInit {
   }
   descargarexcel(){
     this._ExportarexcelService.exportToExcel(this.lista_datos, 'Registros Postulados')
+  }
+
+  resetVariables(){
+    this.numeropostulados=0;
+    this.lista_datos=[];
+    this.sedeUni=0;
+    this.sedeAdmin=0;
+    this.CentroEmp=0;
+    this.InstitutoForm=0;
+    this.OpcionesElegidas_Data=[]
   }
 }

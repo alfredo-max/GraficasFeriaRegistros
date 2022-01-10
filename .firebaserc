@@ -1,7 +1,8 @@
 {
   "projects": {
-    "default": "registrosciclismo",
-    "registrociclismograficas": "registrosciclismo"
+    "default": "moduloregistros",
+    "registrociclismograficas": "registrosciclismo",
+    "registrosCajanal": "moduloregistros"
   },
   "targets": {}
 }

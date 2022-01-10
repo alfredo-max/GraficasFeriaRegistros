@@ -10,6 +10,6 @@ export class FirestoreserviceService {
   constructor(private firestore:AngularFirestore) { }
 
   getDatos():Observable<any>{
-    return this.firestore.collection('postulados').snapshotChanges();
+    return this.firestore.collection('respuestas').snapshotChanges();
   }
 }

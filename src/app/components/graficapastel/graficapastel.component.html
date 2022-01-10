@@ -1,26 +1,12 @@
 
   <div class="row">
-        <div #containerRef class="col-md-6">
+        <div #containerRef class="col-md-12">
             <ngx-charts-advanced-pie-chart
             [view]="[containerRef.offsetWidth-20, containerRef.offsetHeight]"
             [scheme]="colorScheme"
-            [results]="Modalidad_Data"
+            [results]="OpcionesElegidas_Data"
             [percentageFormatting]="percentageFormatting"
-            label="Modalidad"
-            [gradient]="gradient"
-            (select)="onSelect($event)"
-            (activate)="onActivate($event)"
-            (deactivate)="onDeactivate($event)"
-            >
-          </ngx-charts-advanced-pie-chart>
-        </div>
-        <div #containerRef2 class="col-md-6">
-            <ngx-charts-advanced-pie-chart
-            [view]="[containerRef2.offsetWidth-20, containerRef.offsetHeight]"
-            [scheme]="colorScheme"
-            [results]="Tipo_Data"
-            label="Tipo de participación"
-            [percentageFormatting]="percentageFormatting"
+            label="¿Cuál de éstas opciones te gustaría para su uso?"
             [gradient]="gradient"
             (select)="onSelect($event)"
             (activate)="onActivate($event)"
@@ -29,7 +15,7 @@
           </ngx-charts-advanced-pie-chart>
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-3">
       <h3 id="numtext">Número de Postulados: {{ numeropostulados }} </h3>
     </div>
     <div class="row">
